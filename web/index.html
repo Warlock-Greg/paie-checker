@@ -49,18 +49,19 @@
       <label>PDF Wagyz</label>
       <input id="fileWagyz" type="file" accept="application/pdf">
     </div>
-  </div>
-
-  
-
-  
-  <div class="row">
     <label>Type de PDF</label>
 <select id="pdfMode">
   <option value="auto">Auto (recommandé)</option>
   <option value="text">PDF lisible (texte)</option>
   <option value="ocr">PDF plat / scanné (OCR)</option>
 </select>
+  </div>
+
+  
+
+  
+  <div class="row">
+    
     <label for="tol">Tolérance (€)</label>
     <input id="tol" type="number" step="0.01" value="0.05" style="max-width:140px">
     <button id="runBtn">Lancer le contrôle</button>
