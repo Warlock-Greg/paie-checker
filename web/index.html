@@ -51,6 +51,14 @@
     </div>
   </div>
 
+  <label>Type de PDF</label>
+<select id="pdfMode">
+  <option value="auto">Auto (recommandé)</option>
+  <option value="text">PDF lisible (texte)</option>
+  <option value="ocr">PDF plat / scanné (OCR)</option>
+</select>
+
+  
   <div class="row">
     <label for="tol">Tolérance (€)</label>
     <input id="tol" type="number" step="0.01" value="0.05" style="max-width:140px">
@@ -109,8 +117,9 @@ const clearBars = ()=>{ statusEl.style.display='none'; errorEl.style.display='no
 /* ================= API ================= */
 async function callCompareAPI(fileSilae, fileWagyz){
   const form = new FormData();
-  form.append("silae", fileSilae);
-  form.append("wagyz", fileWagyz);
+ form.append("silae", fileSilae);
+ form.append("wagyz", fileWagyz);
+ form.append("mode", document.getElementById("pdfMode").value);
 
   const res = await fetch("/api/compare", { method:"POST", body: form });
   if (!res.ok) throw new Error("Erreur API " + res.status);
